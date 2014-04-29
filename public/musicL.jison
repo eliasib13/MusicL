@@ -2,7 +2,7 @@
 	var rhythm;
 %}
 
-%token //Palabras reservadas (?)
+%token Compas
 
 //Precedencia:
 %right BARRA

@@ -1,7 +1,6 @@
 /* lexical grammar */
 %{
-var reserved_words ={ PARTITURA : ‘PARTITURA'}
-
+	var reserved_words ={ Compas: 'Compas' }
 %}
 %%
 

@@ -599,7 +599,7 @@ stateStackSize:function stateStackSize() {
     },
 options: {},
 performAction: function anonymous(yy,yy_,$avoiding_name_collisions,YY_START) {
-var reserved_words ={ PARTITURA : ‘PARTITURA'}
+
 
 
 var YYSTATE=YY_START;
