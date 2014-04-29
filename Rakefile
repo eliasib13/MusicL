@@ -1,5 +1,5 @@
 desc "Run server"
-task :default => [:css, :jison] do
+task :default => [ :clean, :css, :jison ] do
   sh "rackup"
 end
 

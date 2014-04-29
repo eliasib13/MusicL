@@ -2,11 +2,9 @@
 	var rhythm;
 %}
 
-%token Compas
+%token REDONDA BLANCA NEGRA DOBLE_BARRA BARRA 
 
 //Precedencia:
-%right BARRA
-%left DOBLE_BARRA
 
 %start partitura
 
@@ -14,7 +12,7 @@
 partitura
     : CLAVE ARMADURA guardar_ritmo compases EOF
 	  {
-	  	return [{clave: $1, armadura: $2, ritmo: $3}];
+	  	return [{clave: $1, armadura: $2, ritmo: $3, cuerpo: $4}];
 	  }
     ;
 
@@ -36,14 +34,14 @@ compases
 		
 		if($1) $$ = [$1];
 		
-		if($3) $$ = $$.concat($4);
+		if($3) $$ = $$.concat($3);
 
 	}
      ;
 compas 
 	: notas
 	{
-		$$ = [{type: “Compas”, notas: $1}]
+		$$ = {type: 'Compas', notas: $1}
 	}
 	;
 
@@ -59,23 +57,23 @@ notas
 	;
 
 nota
-: NOM_NOTA figura
-{
-	$$ = [{type: nota, nombre: $1, figura: $2}];
-}
-;
+	: NOM_NOTA figura
+	{
+		$$ = [{type: 'Nota', nombre: $1, figura: $2}];
+	}
+	;
 
 figura 
-        	: REDONDA 
+        : REDONDA 
 	{
-		$$ = [{nombre: “Redonda”, valor: $1}];
+		$$ = {nombre: 'Redonda', valor: $1};
 	}
 	| BLANCA
 	{
-		$$ = [{nombre: “Blanca”, valor: $1}];
+		$$ = {nombre: 'Blanca', valor: $1};
 	}
 	| NEGRA
 	{
-		$$ = [{nombre: “Negra”, valor $1}];
+		$$ = {nombre: 'Negra', valor: $1};
 	}
 	;
