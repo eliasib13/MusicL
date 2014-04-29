@@ -5,8 +5,8 @@
 %token //Palabras reservadas (?)
 
 //Precedencia:
-// %right
-// %left
+%right BARRA
+%left DOBLE_BARRA
 
 %start partitura
 
@@ -45,15 +45,13 @@ compas
 	{
 		$$ = [{type: “Compas”, notas: $1}]
 	}
-	| /*vacio */
-	{
-		$$ = [];
-	}
 	;
 
 notas
 	: nota notas
+	{
 		if($2) $$ = $$.concat($2); 
+	}
 	| /*vacio */
 	{
 		$$ = [];

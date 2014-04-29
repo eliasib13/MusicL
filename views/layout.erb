@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>MusicL</title>
+    <link rel="icon" type="image/jpg" href="favicon.jpg" />
+    <link rel="stylesheet" href="/styles.css" type="text/css" media="screen" charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="musicL.js"></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li> <a href="/grammar"  title="Grammar" <%=current?("/grammar")%>>Grammar</a> </li>
+        <li> <a href="/"  title="Home" <%=current?("/")%>>Home</a> </li>
+<!--        <li> <a href="/test"  title="Pruebas" <%=current?("/test")%>>Pruebas</a> </li> -->
+        <li> <a href="https://github.com/alu0100698121/MusicL"  title="Repo">Repositorio</a> </li>
+        <li> <a href="http://zaach.github.io/jison/"  title="Jison">Jison</a> </li>
+        <li> <a href="https://github.com/SFEley/sinatra-flash"  title="sinatra-flash">sinatra-flash</a> </li>
+      </ul>
+    </nav>
+    <%= yield %>
+  </body>
+</html>
+

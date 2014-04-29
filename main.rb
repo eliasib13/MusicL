@@ -28,5 +28,7 @@ class String
 end
 
 get '/' do
-  erb :index
+  source = "SOL 4# 2/4 G2 ||"
+  erb :index, 
+      :locals => { :source => source}
 end

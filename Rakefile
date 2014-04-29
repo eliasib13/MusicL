@@ -3,16 +3,10 @@ task :default => [:jison] do
   sh "rackup"
 end
 
-desc "Commit changes"
-task :ci, [ :message ] => :keep_secrets do |t, args|
-  message = args[:message] || ''
-  sh "git ci -am '#{message}'"
-end
+task :jison => %w{public/musicL.js} 
 
-task :jison => %w{public/pl0.js} 
-
-desc "Compile the grammar public/pl0.jison"
-file "public/pl0.js" => %w{public/pl0.jison} do
+desc "Compile the grammar public/musicL.jison"
+file "public/musicL.js" => %w{public/musicL.jison} do
   sh "jison public/musicL.jison public/musicL.l -o public/musicL.js"
 end
 
