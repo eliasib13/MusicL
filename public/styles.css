@@ -6,6 +6,11 @@ h1 {
   color: #990033;
   font: 32px/1 Helvetica, Arial, sans-serif; }
 
+.banner {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
 header h1 {
   font-size: 40px;
   line-height: 80px;
