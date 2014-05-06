@@ -77,8 +77,7 @@ yy: {},
 symbols_: {"error":2,"partitura":3,"CLAVE":4,"ARMADURA":5,"guardar_ritmo":6,"compases":7,"EOF":8,"RITMO":9,"compas":10,"DOBLE_BARRA":11,"BARRA":12,"notas":13,"nota":14,"NOM_NOTA":15,"figura":16,"REDONDA":17,"BLANCA":18,"NEGRA":19,"$accept":0,"$end":1},
 terminals_: {2:"error",4:"CLAVE",5:"ARMADURA",8:"EOF",9:"RITMO",11:"DOBLE_BARRA",12:"BARRA",15:"NOM_NOTA",17:"REDONDA",18:"BLANCA",19:"NEGRA"},
 productions_: [0,[3,5],[6,1],[7,2],[7,3],[10,1],[13,2],[13,0],[14,2],[16,1],[16,1],[16,1]],
-performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */
-/**/) {
+performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
 
 var $0 = $$.length - 1;
@@ -91,6 +90,7 @@ case 2:
 		var derecha = $$[$0].substr(0,$$[$0].indexOf("\/"));
 		var izquierda = $$[$0].substr($$[$0].indexOf("\/")+1,$$[$0].length);
 		
+		//Transformamos el ritmo en tiempo, facilitando el cáclculo. 
 		if(izquierda == 4)
 		    tiempo = 1*derecha;
 		else if(izquirda == 2)
@@ -98,9 +98,6 @@ case 2:
 		else if(izquierda == 1)
 		    tiempo = 4*derecha;
 		    
-		console.log(tiempo);    
-		    
-		 
 		this.$ = $$[$0];
 	
 break;
@@ -137,23 +134,17 @@ case 8:
 break;
 case 9:
 		tiempo_temp = tiempo_temp +4;
-		console.log("REDONDA " + tiempo_temp);
-		
 		this.$ = {nombre: 'Redonda', valor: $$[$0]};
 	
 break;
 case 10:	
 		tiempo_temp = tiempo_temp +2;
-		console.log("BLANCA " + tiempo_temp);
-		
 		this.$ = {nombre: 'Blanca', valor: $$[$0]};
 	
 break;
 case 11:
  		tiempo_temp ++;
- 		console.log("NEGRA " + tiempo_temp);
- 		
-		this.$ = {nombre: 'Negra', valor: $$[$0]};
+ 		this.$ = {nombre: 'Negra', valor: $$[$0]};
 	
 break;
 }
@@ -624,8 +615,7 @@ stateStackSize:function stateStackSize() {
         return this.conditionStack.length;
     },
 options: {},
-performAction: function anonymous(yy,yy_,$avoiding_name_collisions,YY_START
-/**/) {
+performAction: function anonymous(yy,yy_,$avoiding_name_collisions,YY_START) {
 
 	var reserved_words ={ REDONDA: 'REDONDA', BLANCA: 'BLANCA', NEGRA: 'NEGRA', DOBLE_BARRA: 'DOBLE_BARRA', BARRA: 'BARRA' }
 
