@@ -28,7 +28,7 @@ class String
 end
 
 get '/' do
-  source = "SOL 4# 2/4 G4 F4 | E2 ||"
+  source = "SOL 4# 2/4 G4 F4 | Eb2 ||"
   erb :index, 
       :locals => { :source => source}
 end

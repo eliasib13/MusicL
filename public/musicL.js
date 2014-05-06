@@ -74,9 +74,9 @@
 var musicL = (function(){
 var parser = {trace: function trace() { },
 yy: {},
-symbols_: {"error":2,"partitura":3,"CLAVE":4,"ARMADURA":5,"guardar_ritmo":6,"compases":7,"EOF":8,"RITMO":9,"compas":10,"DOBLE_BARRA":11,"BARRA":12,"notas":13,"nota":14,"NOM_NOTA":15,"figura":16,"REDONDA":17,"BLANCA":18,"NEGRA":19,"$accept":0,"$end":1},
-terminals_: {2:"error",4:"CLAVE",5:"ARMADURA",8:"EOF",9:"RITMO",11:"DOBLE_BARRA",12:"BARRA",15:"NOM_NOTA",17:"REDONDA",18:"BLANCA",19:"NEGRA"},
-productions_: [0,[3,5],[6,1],[7,2],[7,3],[10,1],[13,2],[13,0],[14,2],[16,1],[16,1],[16,1]],
+symbols_: {"error":2,"partitura":3,"CLAVE":4,"ARMADURA":5,"guardar_ritmo":6,"compases":7,"EOF":8,"RITMO":9,"compas":10,"DOBLE_BARRA":11,"BARRA":12,"notas":13,"nota":14,"NOM_NOTA":15,"alteracion":16,"figura":17,"ALTERACION":18,"REDONDA":19,"BLANCA":20,"NEGRA":21,"$accept":0,"$end":1},
+terminals_: {2:"error",4:"CLAVE",5:"ARMADURA",8:"EOF",9:"RITMO",11:"DOBLE_BARRA",12:"BARRA",15:"NOM_NOTA",18:"ALTERACION",19:"REDONDA",20:"BLANCA",21:"NEGRA"},
+productions_: [0,[3,5],[6,1],[7,2],[7,3],[10,1],[13,2],[13,0],[14,3],[16,1],[16,0],[17,1],[17,1],[17,1]],
 performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
 /* this == yyval */
 
@@ -128,29 +128,32 @@ case 7:
 break;
 case 8:
 		if(tiempo_temp > tiempo)
-		   throw new Error("Se sobrepasa el ritmo del compás con la nota: " + $$[$0-1] + $$[$0].valor );
-		this.$ = [{type: 'Nota', nombre: $$[$0-1], figura: $$[$0]}];
+		   throw new Error("Se sobrepasa el ritmo del compás con la nota: " + $$[$0-2] + $$[$0].valor );
+		if($$[$0-1] != undefined)
+		  this.$ = [{type: 'Nota', nombre: $$[$0-2].concat($$[$0-1]), figura: $$[$0]}];
+		else
+		  this.$ = [{type: 'Nota', nombre: $$[$0-2], figura: $$[$0]}];
 	
 break;
-case 9:
+case 11:
 		tiempo_temp = tiempo_temp +4;
 		this.$ = {nombre: 'Redonda', valor: $$[$0]};
 	
 break;
-case 10:	
+case 12:	
 		tiempo_temp = tiempo_temp +2;
 		this.$ = {nombre: 'Blanca', valor: $$[$0]};
 	
 break;
-case 11:
+case 13:
  		tiempo_temp ++;
  		this.$ = {nombre: 'Negra', valor: $$[$0]};
 	
 break;
 }
 },
-table: [{3:1,4:[1,2]},{1:[3]},{5:[1,3]},{6:4,9:[1,5]},{7:6,10:7,11:[2,7],12:[2,7],13:8,14:9,15:[1,10]},{11:[2,2],12:[2,2],15:[2,2]},{8:[1,11]},{11:[1,12],12:[1,13]},{11:[2,5],12:[2,5]},{11:[2,7],12:[2,7],13:14,14:9,15:[1,10]},{16:15,17:[1,16],18:[1,17],19:[1,18]},{1:[2,1]},{8:[2,3]},{7:19,10:7,11:[2,7],12:[2,7],13:8,14:9,15:[1,10]},{11:[2,6],12:[2,6]},{11:[2,8],12:[2,8],15:[2,8]},{11:[2,9],12:[2,9],15:[2,9]},{11:[2,10],12:[2,10],15:[2,10]},{11:[2,11],12:[2,11],15:[2,11]},{8:[2,4]}],
-defaultActions: {11:[2,1],12:[2,3],19:[2,4]},
+table: [{3:1,4:[1,2]},{1:[3]},{5:[1,3]},{6:4,9:[1,5]},{7:6,10:7,11:[2,7],12:[2,7],13:8,14:9,15:[1,10]},{11:[2,2],12:[2,2],15:[2,2]},{8:[1,11]},{11:[1,12],12:[1,13]},{11:[2,5],12:[2,5]},{11:[2,7],12:[2,7],13:14,14:9,15:[1,10]},{16:15,18:[1,16],19:[2,10],20:[2,10],21:[2,10]},{1:[2,1]},{8:[2,3]},{7:17,10:7,11:[2,7],12:[2,7],13:8,14:9,15:[1,10]},{11:[2,6],12:[2,6]},{17:18,19:[1,19],20:[1,20],21:[1,21]},{19:[2,9],20:[2,9],21:[2,9]},{8:[2,4]},{11:[2,8],12:[2,8],15:[2,8]},{11:[2,11],12:[2,11],15:[2,11]},{11:[2,12],12:[2,12],15:[2,12]},{11:[2,13],12:[2,13],15:[2,13]}],
+defaultActions: {11:[2,1],12:[2,3],17:[2,4]},
 parseError: function parseError(str, hash) {
     if (hash.recoverable) {
         this.trace(str);
@@ -629,26 +632,28 @@ case 2:return 12
 break;
 case 3:return 15
 break;
-case 4:return 4
+case 4:return 18
 break;
-case 5:return 9
+case 5:return 4
 break;
-case 6:return 5
+case 6:return 9
 break;
-case 7:return 17
+case 7:return 5
 break;
-case 8:return 18
+case 8:return 19
 break;
-case 9:return 19
+case 9:return 20
 break;
-case 10:return 8
+case 10:return 21
 break;
-case 11:return 'INVALID'
+case 11:return 8
+break;
+case 12:return 'INVALID'
 break;
 }
 },
-rules: [/^(?:\s+)/,/^(?:(\|\|))/,/^(?:(\|))/,/^(?:(A|B|C|D|E|F|G))/,/^(?:(SOL|FA))/,/^(?:(2\/4|3\/4|4\/4))/,/^(?:([0-7]#|[0-7]b|0))/,/^(?:(1))/,/^(?:(2))/,/^(?:(4))/,/^(?:$)/,/^(?:.)/],
-conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8,9,10,11],"inclusive":true}}
+rules: [/^(?:\s+)/,/^(?:(\|\|))/,/^(?:(\|))/,/^(?:(A|B|C|D|E|F|G))/,/^(?:(#|b))/,/^(?:(SOL|FA))/,/^(?:(2\/4|3\/4|4\/4))/,/^(?:([0-7]#|[0-7]b|0))/,/^(?:(1))/,/^(?:(2))/,/^(?:(4))/,/^(?:$)/,/^(?:.)/],
+conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8,9,10,11,12],"inclusive":true}}
 };
 return lexer;
 })();

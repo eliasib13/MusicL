@@ -69,12 +69,20 @@ notas
 	;
 
 nota
-	: NOM_NOTA figura
+	: NOM_NOTA alteracion figura
 	{
 		if(tiempo_temp > tiempo)
 		   throw new Error("Se sobrepasa el ritmo del compás con la nota: " + $NOM_NOTA + $figura.valor );
-		$$ = [{type: 'Nota', nombre: $1, figura: $2}];
+		if($2 != undefined)
+		  $$ = [{type: 'Nota', nombre: $1.concat($2), figura: $3}];
+		else
+		  $$ = [{type: 'Nota', nombre: $1, figura: $3}];
 	}
+	;
+	
+alteracion
+	: ALTERACION
+	| /* vacio */
 	;
 
 figura 
