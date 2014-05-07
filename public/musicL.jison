@@ -50,12 +50,19 @@ compases
 	}
      ;
 compas 
-	: notas
+	: reset_time notas
 	{
-		tiempo_temp = 0;
-		$$ = {type: 'Compas', notas: $1}
+		$$ = {type: 'Compas', notas: $2}
 	}
 	;
+	
+reset_time
+	: 
+	{
+	  tiempo_temp = 0;
+	}
+	;
+	
 
 notas
 	: nota notas
