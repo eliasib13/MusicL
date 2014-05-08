@@ -14,7 +14,7 @@ En primera instancia, se ofrecerá un árbol que describe la notación que se es
 
 ## 2. Acceso a la página web
 
-La aplicación se encuentra alojada en [Heroku](Heroku): [musicl.herokuapp.com](MusicL)
+La aplicación se encuentra alojada en [Heroku][Heroku]: [musicl.herokuapp.com][MusicL]
    
 
 ## 3. Descripción de uso del DSL
@@ -35,16 +35,16 @@ Por último, el compositor debe marcar los fines de compases y de partitura con 
 ## 4. Dependencias
 
 Para el desarrollo de este proyecto se han usado estas dependecias:
-- [Jison](Jison)
-- [Sass](Sass)
-- [Sinatra](Sinatra)
+- [Jison][Jison]
+- [Sass][Sass]
+- [Sinatra][Sinatra]
 
 
 ## 5. Autores
-- [Laura Fariña Rodríguez](Laura-gh)
-- [Eliasib Jesús García Martín](Eliasib-gh)
-- [Alejandro Hernández Hernández](Alejandro-gh)
-- [Néstor Albelo Jorge](Nestor-gh)
+- [Laura Fariña Rodríguez][Laura-gh]
+- [Eliasib Jesús García Martín][Eliasib-gh]
+- [Alejandro Hernández Hernández][Alejandro-gh]
+- [Néstor Albelo Jorge][Nestor-gh]
 
 
 [Heroku]: https://www.heroku.com/
