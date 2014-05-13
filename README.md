@@ -27,6 +27,10 @@ Luego, querremos añadir notas; para ello, se indica el nombre de la nota (en no
 
     SOL 2# 4/4 C4 D4 Eb4 F4
     
+Si en lugar de notas, se quieren añadir silencios, se indica con el caracter '$' seguido del valor del mismo. Por ejemplo:
+
+    SOL 2# 4/4 C4 D4 E4 $4
+    
 Por último, el compositor debe marcar los fines de compases y de partitura con una simple o doble barra vertical, respectivamente. Continuando con el ejemplo anterior, completamos una escala de la siguente manera:
 
     SOL 2# 4/4 C4 D4 Eb4 F4 | G4 A4 B4 C4 ||

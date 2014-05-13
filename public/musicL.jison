@@ -85,6 +85,13 @@ nota
 		else
 		  $$ = [{type: 'Nota', nombre: $1, figura: $3}];
 	}
+	| SILENCIO figura
+	{
+		if(tiempo_temp > tiempo)
+		  throw new Error("Se sobrepasa el ritmo del compás con el silencio: " + $SILENCIO + $figura.valor );
+		else
+		  $$ = [{type: 'Silencio', figura: $2}];
+	}
 	;
 	
 alteracion

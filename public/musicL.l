@@ -8,6 +8,7 @@
 ('||') return 'DOBLE_BARRA'
 ('|') return 'BARRA'
 (A|B|C|D|E|F|G)  return 'NOM_NOTA'
+(\$)	return 'SILENCIO'
 (\#|b) return 'ALTERACION'
 (SOL|FA) return 'CLAVE'
 (2\/4|3\/4|4\/4) return 'RITMO'
