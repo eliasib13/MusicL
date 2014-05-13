@@ -1,23 +1,24 @@
 <!-- <h1> ~~ MusicL ~~ </h1> -->
-<img class="banner" src="MusicL2.png" alt=" ~~ MusicL ~~" height="300" width="520" align="middle"/>
 <div id="content">
   <p>
+  <hr>
   <table>
     <tr>
       <td>
           <textarea id="input" name="input" 
                     autofocus cols = "40" rows = "4">
-<%= source %>
+                <%= source %>
           </textarea>
-          <br/>
       </td>
       <td><button id="parse" type="button">parse</button></td>
     </tr>
   </table>
-  <button id="DoM" type="button">Escala Do M</button>
-  <button id="FaM" type="button">Escala Fa M</button>
-  <button id="EbM" type="button">Escala Mib m</button>
-  <button id="Lam" type="button">Escala La m melódica</button>	
+  <div id="examples">
+    <button id="DoM" type="button">Escala Do M</button>
+    <button id="FaM" type="button">Escala Fa M</button>
+    <button id="EbM" type="button">Escala Mib m</button>
+    <button id="Lam" type="button">Escala La m melódica</button>  
+  </div>
   </p>
   <p>
     <div id="flash"><%= flash[:notice] if flash[:notice]%></div>
