@@ -1,6 +1,10 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
-  background-image: url("http://www.cheridegruccio.com/1CreamBackground.jpg"); }
+  background: url("http://f.cl.ly/items/1J2U0P2b3j0M3R1v153b/Background.png") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
 
 h1 {
   color: #990033;
@@ -18,26 +22,30 @@ header h1 {
   background-size: 5% 70%;
   padding-left: 84px; }
 
+
+
+
+
 nav {
-  font-weight: bold; }
+  font-family: 'Raleway', sans-serif;  font-weight: bold; 
+  text-align: center;
+  }
   nav ul {
+    display: inline-block;
     list-style: none;
     margin: 0;
     padding: 0;
-    background: #af7817;
-    border-radius: 10px;
-    border: 2px dashed #DDD;
     overflow: hidden; }
   nav li {
     float: left; }
   nav a {
     text-decoration: none;
     display: block;
-    padding: 8px;
-    background: #af7817;
+    padding: 20px;
     color: white; }
     nav a:hover {
-      background-color: #7C5852; }
+      background-color: #7C5852; 
+}
 
 p {
   font: 13px/1.4 Helvetica, Arial, sans-serif; }
@@ -93,6 +101,17 @@ nav a.current {
 
 .centered {
   text-align: center; }
+
+.input{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table{ 
+  margin-left: auto;
+  margin-right: auto;
+}
 
 input[type=text] {
   border: 5px dotted #C68E17;
