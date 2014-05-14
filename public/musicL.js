@@ -83,14 +83,15 @@ performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* actio
 
 var $0 = $$.length - 1;
 switch (yystate) {
-case 1:
-	  	return [{clave: $$[$0-4], armadura: $$[$0-3], ritmo: $$[$0-2], cuerpo: $$[$0-1]}];
+case 1:	
+		return [{clave: $$[$0-4], armadura: $$[$0-3], ritmo: $$[$0-2], cuerpo: $$[$0-1]}];
 	  
 break;
 case 2:
 		var derecha = $$[$0].substr(0,$$[$0].indexOf("\/"));
 		var izquierda = $$[$0].substr($$[$0].indexOf("\/")+1,$$[$0].length);
 		
+		//Transformamos el ritmo en tiempo, facilitando el cáclculo. 
 		if(izquierda == 4)
 		    tiempo = 1*derecha;
 		else if(izquirda == 2)
@@ -98,9 +99,6 @@ case 2:
 		else if(izquierda == 1)
 		    tiempo = 4*derecha;
 		    
-		console.log(tiempo);    
-		    
-		 
 		this.$ = $$[$0];
 	
 break;
@@ -137,23 +135,17 @@ case 8:
 break;
 case 9:
 		tiempo_temp = tiempo_temp +4;
-		console.log("REDONDA " + tiempo_temp);
-		
 		this.$ = {nombre: 'Redonda', valor: $$[$0]};
 	
 break;
 case 10:	
 		tiempo_temp = tiempo_temp +2;
-		console.log("BLANCA " + tiempo_temp);
-		
 		this.$ = {nombre: 'Blanca', valor: $$[$0]};
 	
 break;
 case 11:
  		tiempo_temp ++;
- 		console.log("NEGRA " + tiempo_temp);
- 		
-		this.$ = {nombre: 'Negra', valor: $$[$0]};
+ 		this.$ = {nombre: 'Negra', valor: $$[$0]};
 	
 break;
 }

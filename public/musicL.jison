@@ -12,8 +12,8 @@
 %% /* Lenguaje */
 partitura
     : CLAVE ARMADURA guardar_ritmo compases EOF
-	  {
-	  	return [{clave: $1, armadura: $2, ritmo: $3, cuerpo: $4}];
+	  {	
+		return [{clave: $1, armadura: $2, ritmo: $3, cuerpo: $4}];
 	  }
     ;
 
