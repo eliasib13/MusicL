@@ -50,12 +50,19 @@ compases
 	}
      ;
 compas 
-	: notas
+	: reset_time notas
 	{
-		tiempo_temp = 0;
-		$$ = {type: 'Compas', notas: $1}
+		$$ = {type: 'Compas', notas: $2}
 	}
 	;
+	
+reset_time
+	: 
+	{
+	  tiempo_temp = 0;
+	}
+	;
+	
 
 notas
 	: nota notas
@@ -69,12 +76,27 @@ notas
 	;
 
 nota
-	: NOM_NOTA figura
+	: NOM_NOTA alteracion figura
 	{
 		if(tiempo_temp > tiempo)
 		   throw new Error("Se sobrepasa el ritmo del compás con la nota: " + $NOM_NOTA + $figura.valor );
-		$$ = [{type: 'Nota', nombre: $1, figura: $2}];
+		if($2 != undefined)
+		  $$ = [{type: 'Nota', nombre: $1.concat($2), figura: $3}];
+		else
+		  $$ = [{type: 'Nota', nombre: $1, figura: $3}];
 	}
+	| SILENCIO figura
+	{
+		if(tiempo_temp > tiempo)
+		  throw new Error("Se sobrepasa el ritmo del compás con el silencio: " + $SILENCIO + $figura.valor );
+		else
+		  $$ = [{type: 'Silencio', figura: $2}];
+	}
+	;
+	
+alteracion
+	: ALTERACION
+	| /* vacio */
 	;
 
 figura 

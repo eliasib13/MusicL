@@ -1,4 +1,5 @@
-<h1> ~~ MusicL ~~ </h1>
+<!-- <h1> ~~ MusicL ~~ </h1> -->
+<img class="banner" src="MusicL2.png" alt=" ~~ MusicL ~~" height="300" width="520" align="middle"/>
 <div id="content">
   <p>
   <table>
@@ -13,6 +14,10 @@
       <td><button id="parse" type="button">parse</button></td>
     </tr>
   </table>
+  <button id="DoM" type="button">Escala Do M</button>
+  <button id="FaM" type="button">Escala Fa M</button>
+  <button id="EbM" type="button">Escala Mib m</button>
+  <button id="Lam" type="button">Escala La m melódica</button>	
   </p>
   <p>
     <div id="flash"><%= flash[:notice] if flash[:notice]%></div>
@@ -21,9 +26,13 @@
 <pre>
 <span id="output">
 </span>
+<span id="partitura">
+</span>
 </pre>
   </div>
 </div>
 
 <script type="text/javascript" src="musicL.js"></script>
 <script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="vexflow/build/vexflow/vexflow-debug.js"></script>
+<script type="text/javascript" src="vexflow/build/vexflow/vexflow-min.js"></script>
