@@ -1,5 +1,5 @@
 desc "Run server"
-task :default => [ :clean, :css, :jison ] do
+task :default => [ :clean, :jison ] do
   sh "rackup"
 end
 
@@ -8,11 +8,6 @@ task :jison => %w{public/musicL.js}
 desc "Compile the grammar public/musicL.jison"
 file "public/musicL.js" => %w{public/musicL.jison} do
   sh "jison public/musicL.jison public/musicL.l -o public/musicL.js"
-end
-
-desc "Compile the sass public/styles.scss"
-task :css do
-  sh "sass public/styles.scss public/styles.css"
 end
 
 task :testf do
