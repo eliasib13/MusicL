@@ -77,7 +77,8 @@ yy: {},
 symbols_: {"error":2,"partitura":3,"CLAVE":4,"ARMADURA":5,"guardar_ritmo":6,"compases":7,"EOF":8,"RITMO":9,"compas":10,"DOBLE_BARRA":11,"BARRA":12,"reset_time":13,"notas":14,"nota":15,"NOM_NOTA":16,"alteracion":17,"figura":18,"SILENCIO":19,"ALTERACION":20,"REDONDA":21,"BLANCA":22,"NEGRA":23,"$accept":0,"$end":1},
 terminals_: {2:"error",4:"CLAVE",5:"ARMADURA",8:"EOF",9:"RITMO",11:"DOBLE_BARRA",12:"BARRA",16:"NOM_NOTA",19:"SILENCIO",20:"ALTERACION",21:"REDONDA",22:"BLANCA",23:"NEGRA"},
 productions_: [0,[3,5],[6,1],[7,2],[7,3],[10,2],[13,0],[14,2],[14,0],[15,3],[15,2],[17,1],[17,0],[18,1],[18,1],[18,1]],
-performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */) {
+performAction: function anonymous(yytext, yyleng, yylineno, yy, yystate /* action[1] */, $$ /* vstack */, _$ /* lstack */
+/**/) {
 /* this == yyval */
 
 var $0 = $$.length - 1;
@@ -628,7 +629,8 @@ stateStackSize:function stateStackSize() {
         return this.conditionStack.length;
     },
 options: {},
-performAction: function anonymous(yy,yy_,$avoiding_name_collisions,YY_START) {
+performAction: function anonymous(yy,yy_,$avoiding_name_collisions,YY_START
+/**/) {
 
 	var reserved_words ={ REDONDA: 'REDONDA', BLANCA: 'BLANCA', NEGRA: 'NEGRA', DOBLE_BARRA: 'DOBLE_BARRA', BARRA: 'BARRA' }
 
