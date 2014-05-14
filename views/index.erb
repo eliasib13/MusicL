@@ -2,34 +2,35 @@
 <div id="content">
   <p>
   <hr>
-  <table>
-    <tr>
-      <td>
+   <table>
+      <tr>
           <textarea id="input" name="input" 
                     autofocus cols = "40" rows = "4">
                 <%= source %>
           </textarea>
-      </td>
-      <td><button id="parse" type="button">parse</button></td>
-    </tr>
+      </tr>
+      <br>
+      <tr><button class="buttons" id="parse" type="button">Parse</button></tr>
   </table>
-  <div id="examples">
-    <button id="DoM" type="button">Escala Do M</button>
-    <button id="FaM" type="button">Escala Fa M</button>
-    <button id="EbM" type="button">Escala Mib m</button>
-    <button id="Lam" type="button">Escala La m melódica</button>  
-  </div>
+  <nav id = "ListaBotones">
+    <button class="buttons" id="DoM" type="button">Escala Do M</button>
+    <button class="buttons" id="FaM" type="button">Escala Fa M</button>
+    <button class="buttons" id="EbM" type="button">Escala Mib m</button>
+    <button class="buttons" id="Lam" type="button">Escala La m melódica</button>  
+  </nav>
   </p>
   <p>
     <div id="flash"><%= flash[:notice] if flash[:notice]%></div>
   </p>
-  <div class="output"><!-- Output goes here! --> 
-<pre>
-<span id="output">
-</span>
-<span id="partitura">
-</span>
-</pre>
+  <br> <br>
+  <div id="outputTable" height="153" width="100"><!-- Output goes here! --> 
+    Arbol Generado
+    <pre>
+      <span id="output">
+      </span>
+      <span id="partitura">
+      </span>
+    </pre>
   </div>
 </div>
 
