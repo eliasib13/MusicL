@@ -26,7 +26,7 @@ guardar_ritmo
 		//Transformamos el ritmo en tiempo, facilitando el cáclculo. 
 		if(izquierda == 4)
 		    tiempo = 1*derecha;
-		else if(izquirda == 2)
+		else if(izquierda == 2)
 		    tiempo = 2*derecha;
 		else if(izquierda == 1)
 		    tiempo = 4*derecha;
