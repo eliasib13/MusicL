@@ -3,17 +3,80 @@ $(document).ready(function() {
     try {
       var result = musicL.parse($('#input').val());
       $('#output').html(JSON.stringify(result,undefined,2));
-      //$('#partitura').html('<canvas id="lienzo" width=625 height=160> </canvas>');
-      
-//       var lienzo = $('#lienzo');
-//       var renderer = new Vex.Flow.Renderer(lienzo,Vex.Flow.Renderer.Backends.CANVAS); // Fallo aquí...
-//       var ctx = renderer.getContext();
-//       renderer.size(500,300);
-//       ctx.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
-//       
-//       var stave = new Vex.Flow.Stave(10, 0, 500);
-//       stave.addClef("treble");
-//       stave.setContext(ctx).draw();
+      $('#lienzo').class = "mostrarlienzo";
+      var canvas = $('#lienzo')[0];
+      var renderer = new Vex.Flow.Renderer(canvas,Vex.Flow.Renderer.Backends.CANVAS);
+        
+        var ctx = renderer.getContext();
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        var stave = new Vex.Flow.Stave(10, 0, 650);
+        
+        if (result[0].clave == "SOL")
+            stave.addClef("treble").setContext(ctx).draw();
+        else if (result[0].clave == "FA")
+            stave.addClef("bass").setContext(ctx).draw();
+        
+        stave.addTimeSignature(result[0].ritmo).setContext(ctx).draw();
+        
+        
+        var keySignature = "C";
+        if (result[0].armadura != "0") {
+            if (result[0].armadura.search('b') != -1) {
+                switch(result[0].armadura.substr(0,1)) {
+                        case "1":
+                            keySignature = "F";
+                        break;
+                        case "2":
+                            keySignature = "Bb";
+                        break;
+                        case "3":
+                            keySignature = "Eb";
+                        break;
+                        case "4":
+                            keySignature = "Ab";
+                        break;
+                        case "5":
+                            keySignature = "Db";
+                        break;
+                        case "6":
+                            keySignature = "Gb";
+                        break;
+                        case "7":
+                            keySignature = "Cb";
+                        break;
+                }
+            }
+            else if (result[0].armadura.search('#') != -1) {
+                switch(result[0].armadura.substr(0,1)) {
+                        case "1":
+                            keySignature = "G";
+                        break;
+                        case "2":
+                            keySignature = "D";
+                        break;
+                        case "3":
+                            keySignature = "A";
+                        break;
+                        case "4":
+                            keySignature = "E";
+                        break;
+                        case "5":
+                            keySignature = "B";
+                        break;
+                        case "6":
+                            keySignature = "F#";
+                        break;
+                        case "7":
+                            keySignature = "C#";
+                        break;
+                }
+            }
+        }
+        stave.addKeySignature(keySignature).setContext(ctx).draw();
+        
+        
+        
+        
     } catch (e) {
       $('#output').html('<div class="error"><pre>\n' + String(e) + '\n</pre></div>');
     }
