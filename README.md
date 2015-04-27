@@ -11,7 +11,6 @@ En primera instancia, se ofrecerá un árbol que describe la notación que se es
 
 #### 1.1 Objetivos futuros
 - Añadir más funciones que permitan componer partituras más complejas (se introducirán gradualmente).
-- Consguir representar en forma de partitura real la notación escrita. (Pendiente)
 
 ## 2. Acceso a la página web
 
